@@ -1,0 +1,45 @@
+# Environment variables (API keys, passwords)
+.env
+.env.local
+.env.*.local
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Electron
+dist/
+out/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Audio files (downloaded, large)
+storage/downloaded_audios/
+storage/separated_tracks/
+storage/cache/
+
+# Database (can be regenerated)
+backend/database.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Logs
+logs/
+*.log

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎵 Karaoke Inteligente Pro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <h1>🎤 Karaoke Inteligente Pro</h1>
+      <p>Busca, descarga y canta con inteligencia artificial</p>
+    </div>
+  </nav>
+
+  <div class="container main-content">
+    <!-- TABS NAVIGATION -->
+    <div class="tabs">
+      <button class="tab-button active" data-tab="search">
+        🔍 Buscar Canciones
+      </button>
+      <button class="tab-button" data-tab="library">
+        📚 Mi Librería
+      </button>
+      <button class="tab-button" data-tab="player">
+        ♪ Reproductor
+      </button>
+      <button class="tab-button" data-tab="queue">
+        📋 Cola de Karaoke
+      </button>
+    </div>
+
+    <!-- TAB 1: SEARCH -->
+    <div id="search" class="tab-content active">
+      <div class="card">
+        <h2 class="card-title">🔍 Buscar Canciones en Spotify</h2>
+        <p class="card-subtitle">Busca cualquier canción y descárguala automáticamente de YouTube</p>
+
+        <div class="form-group">
+          <label>Artista:</label>
+          <input type="text" id="searchArtist" placeholder="Ej: Queen" value="">
+        </div>
+
+        <div class="form-group">
+          <label>Canción:</label>
+          <input type="text" id="searchTrack" placeholder="Ej: Bohemian Rhapsody" value="">
+        </div>
+
+        <button class="btn btn-primary btn-block" id="searchBtn">
+          🔎 Buscar en Spotify
+        </button>
+      </div>
+
+      <div id="searchResults" class="search-results"></div>
+      <div id="searchAlert" style="display: none;"></div>
+    </div>
+
+    <!-- TAB 2: LIBRARY -->
+    <div id="library" class="tab-content">
+      <div class="card">
+        <h2 class="card-title">📚 Mi Librería de Karaokes</h2>
+        <p class="card-subtitle">
+          Canciones descargadas y procesadas
+        </p>
+
+        <button class="btn btn-primary btn-small" id="refreshLibraryBtn" style="margin-bottom: 1rem;">🔄 Actualizar</button>
+
+        <div id="libraryList" class="library-list"></div>
+        <div id="libraryAlert" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: PLAYER -->
+    <div id="player" class="tab-content">
+      <div class="player">
+        <div class="player-title" id="playerTitle">Selecciona una canción para reproducir</div>
+        <div class="player-artist" id="playerArtist"></div>
+
+        <div class="player-controls">
+          <button class="btn btn-primary" id="playBtn">▶ Reproducir</button>
+          <button class="btn btn-primary" id="pauseBtn">⏸ Pausa</button>
+          <button class="btn btn-primary" id="muteBtn">🔊 Mute</button>
+        </div>
+
+        <div class="player-progress">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+          </div>
+          <div class="progress-time">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <div class="lyrics-container" id="lyricsContainer" style="display: none;">
+          <div id="lyricsList"></div>
+        </div>
+
+        <div id="playerAlert" style="display: none;"></div>
+      </div>
+
+      <audio id="audioPlayer" style="display: none;"></audio>
+    </div>
+
+    <!-- TAB 4: QUEUE -->
+    <div id="queue" class="tab-content">
+      <div class="card">
+        <h2 class="card-title">📋 Cola de Karaoke</h2>
+        <p class="card-subtitle">Cantantes en espera</p>
+
+        <form id="addQueueForm" style="margin-bottom: 2rem;">
+          <div class="form-group">
+            <label>Canción:</label>
+            <select id="queueSongSelect">
+              <option value="">-- Selecciona una canción --</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Nombre del cantante:</label>
+            <input type="text" id="queueSingerName" placeholder="Ej: Juan" value="">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">➕ Agregar a la cola</button>
+        </form>
+
+        <div id="queueList" class="queue-list"></div>
+        <div id="queueAlert" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
